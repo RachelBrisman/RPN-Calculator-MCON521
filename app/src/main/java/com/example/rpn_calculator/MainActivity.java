@@ -2,43 +2,61 @@ package com.example.rpn_calculator;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.rpn_calculator.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    private String equation = "";
+    private TextView showEquation;
 
     @Override
     protected void onCreate (Bundle savedInstanceState)
     {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        setUpFAB(toolbar);
+        setupToolbar();
+        setupEFAB();
+        initializeViews();
     }
 
-    private void setUpFAB(Toolbar toolbar) {
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make (toolbar,"Hello, world!", Snackbar.LENGTH_SHORT).show ());
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
+
+    private void initializeViews() {
+        showEquation = findViewById(R.id.equation);
+    }
+
+    private void setupEFAB() {
+        ExtendedFloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleEFABClick();
+            }
+        });
+    }
+
+    private void handleEFABClick() {
+        //do the calculation
+        //if its correct,
+            //display it in the result
+        //else
+            //go to the instructions activity
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,5 +78,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addToEquation(View view) {
+        Button currentButton = (Button) view;
+        String currentButtonText = currentButton.getText().toString();
+        equation += currentButtonText;
+        showEquation.setText(equation);
     }
 }

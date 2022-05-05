@@ -11,5 +11,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
         <item name="android:textColor">@color/button_color_selector</item>
+        <item name="android:onClick">addToEquation</item>
     </style>
 </resources>
