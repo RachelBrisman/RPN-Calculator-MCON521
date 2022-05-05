@@ -61,67 +61,67 @@
             android:orientation="horizontal">
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="1" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="2" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="3" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="4" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="5" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="6" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="7" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="8" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="9" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="." />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="0" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="+" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="-" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="x" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:text="/" />
 
             <Button
-                style="@style/BorderlessButtonGuessingGame"
+                style="@style/BorderlessButton"
                 android:layout_columnSpan="3"
                 android:text="SPACE" />
         </GridLayout>
