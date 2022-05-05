@@ -9,7 +9,7 @@
 </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,40 +17,52 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <!--sets up the layout for textInputEditText, brings the hint up when user types-->
-    <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="Type in a Reverse Polish Notation Equation">
+        android:layout_height="?actionBarSize"
+        android:background="@color/primaryDarkColor"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Overdraw"
+        tools:showIn="@layout/content_main">
 
-        <!--input field-->
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputted_text"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+            android:gravity="center"
+            android:text="Type in a Reverse Polish Notation Equation"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@android:color/primary_text_dark"
+            android:textStyle="bold" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <!--result field-->
+
     <TextView
-        android:id="@+id/echoed_result"
+        android:id="@+id/equation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         style="@style/MaterialCardWithBorder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:alpha=".8"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/result"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/equation"
         tools:showIn="@layout/content_main">
 
         <GridLayout
@@ -129,5 +141,17 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Result: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
