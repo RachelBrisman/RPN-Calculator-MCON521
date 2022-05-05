@@ -136,7 +136,8 @@
                 style="@style/BorderlessButton"
                 android:layout_columnSpan="3"
                 android:layout_gravity="center_horizontal"
-                android:text="SPACE" />
+                android:text="SPACE"
+                android:onClick="addSpaceToEquation"/>
         </GridLayout>
 
     </com.google.android.material.card.MaterialCardView>

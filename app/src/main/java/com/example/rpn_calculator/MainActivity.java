@@ -86,4 +86,11 @@ public class MainActivity extends AppCompatActivity {
         equation += currentButtonText;
         showEquation.setText(equation);
     }
+
+    public void addSpaceToEquation(View view) {
+        Button currentButton = (Button) view;
+        String currentButtonText = " ";
+        equation += currentButtonText;
+        showEquation.setText(equation);
+    }
 }
