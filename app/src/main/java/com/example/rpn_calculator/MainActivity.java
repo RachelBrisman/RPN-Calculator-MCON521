@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String equation = "";
     private TextView showEquation;
+    private Button button;
+    private TextView result;
 
     @Override
     protected void onCreate (Bundle savedInstanceState)
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleEFABClick() {
+        button = findViewById(R.id.fab);
+        result = findViewById(R.id.result);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(showEquation.getText().toString());
+            }
+        });
         //do the calculation
         //if its correct,
             //display it in the result
