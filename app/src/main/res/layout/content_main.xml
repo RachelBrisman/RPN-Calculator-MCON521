@@ -90,6 +90,7 @@
 
             <Button
                 style="@style/BorderlessButton"
+                android:layout_width="wrap_content"
                 android:text="5" />
 
             <Button
@@ -132,9 +133,17 @@
                 style="@style/BorderlessButton"
                 android:text="/" />
 
+            <ImageButton
+                style="@style/BorderlessButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:onClick="backspaceEquation"
+                android:src="?attr/homeAsUpIndicator"
+                app:tint="@android:color/black" />
+
             <Button
                 style="@style/BorderlessButton"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="2"
                 android:layout_gravity="center_horizontal"
                 android:text="SPACE"
                 android:onClick="addSpaceToEquation"/>

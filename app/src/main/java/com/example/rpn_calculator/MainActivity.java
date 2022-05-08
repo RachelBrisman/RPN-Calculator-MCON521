@@ -1,5 +1,8 @@
 package com.example.rpn_calculator;
 
+import static lib.Utils.showInfoDialog;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -55,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
             //display it in the result
         //else
             //go to the instructions activity
+
+        //This goes to the Instructions Activity
+        showInstructions();
     }
 
 
@@ -75,9 +81,28 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else
+        if (id == R.id.action_instructions) {
+            showInstructions();
+        }else
+        if (id == R.id.action_toggle_auto_save) {
+            //set auto save in or off
+        }else if (id == R.id.action_about) {
+            showAbout();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showInstructions() {
+        Intent intent = new Intent(getApplicationContext(), InstructionsActivity.class);
+        startActivity(intent);
+    }
+
+    private void showAbout() {
+        showInfoDialog(MainActivity.this, "About This RPN Calculator",
+                "Solve RPN equations easily\n" +
+                        "\nBy Talia Yahav and Rachel Brisman");
     }
 
     public void addToEquation(View view) {
@@ -88,9 +113,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addSpaceToEquation(View view) {
-        Button currentButton = (Button) view;
-        String currentButtonText = " ";
-        equation += currentButtonText;
+        equation += " ";
+        showEquation.setText(equation);
+    }
+
+    public void backspaceEquation(View view) {
+        if(equation.length() != 0)
+        {
+            equation = equation.substring(0, equation.length() - 1);
+        }
         showEquation.setText(equation);
     }
 }
