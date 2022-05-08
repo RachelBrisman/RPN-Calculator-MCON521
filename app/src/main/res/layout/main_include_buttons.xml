@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/materialCardView"
+    style="@style/MaterialCardWithBorder"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:alpha=".8"
+    app:layout_constraintBottom_toTopOf="@id/fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/equation"
+    tools:showIn="@layout/main_include_equation_buttons_result">
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDefaultBackground"
+        android:columnCount="@integer/columns"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="1" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="2" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="3" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="4" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:layout_width="wrap_content"
+            android:text="5" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="6" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="7" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="8" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="9" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="." />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="0" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="+" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="-" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="x" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:text="/" />
+
+        <ImageButton
+            style="@style/BorderlessButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:onClick="backspaceEquation"
+            android:src="?attr/homeAsUpIndicator"
+            app:tint="@android:color/black" />
+
+        <Button
+            style="@style/BorderlessButton"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center_horizontal"
+            android:text="SPACE"
+            android:onClick="addSpaceToEquation" />
+    </GridLayout>
+
+</com.google.android.material.card.MaterialCardView>
