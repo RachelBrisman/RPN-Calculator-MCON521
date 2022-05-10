@@ -11,4 +11,5 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/materialCardView"
-    tools:showIn="@layout/main_include_equation_buttons_result" />
+    tools:showIn="@layout/main_include_equation_buttons_result"
+    />

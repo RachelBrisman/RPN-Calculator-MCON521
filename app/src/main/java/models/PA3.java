@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class PA3 {
-    private static Scanner scan = new Scanner(System.in);
-    private static Stack<Double> stack = new Stack<>();
+    public static Scanner scan = new Scanner(System.in);
+    public static Stack<Double> stack = new Stack<>();
 
     public static void main(String[] args)
     {
