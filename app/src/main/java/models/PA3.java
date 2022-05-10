@@ -7,19 +7,19 @@ public class PA3 {
     private static Scanner scan = new Scanner(System.in);
     private static Stack<Double> stack = new Stack<>();
 
-    public static void main(String[] args)
-    {
-        while(true)
-        {
-            System.out.println("Enter an RPN expression or <CR> to exit");
-            String userInput = scan.nextLine();
-            if(userInput.equals("")){
-                break;
-            }
-            System.out.println(evaluate(userInput));
-        }
-        System.out.println("Thanks for using!");
-    }
+//    public static void main(String[] args)
+//    {
+//        while(true)
+//        {
+//            System.out.println("Enter an RPN expression or <CR> to exit");
+//            String userInput = scan.nextLine();
+//            if(userInput.equals("")){
+//                break;
+//            }
+//            System.out.println(evaluate(userInput));
+//        }
+//        System.out.println("Thanks for using!");
+//    }
 
     public static String evaluate(String expression)
     {
