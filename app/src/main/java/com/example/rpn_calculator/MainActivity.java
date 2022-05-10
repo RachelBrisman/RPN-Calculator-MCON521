@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,10 +19,14 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import models.PA3;
+
 public class MainActivity extends AppCompatActivity {
 
     private String equation = "";
     private TextView showEquation;
+    private Button button;
+    private TextView result;
 
     @Override
     protected void onCreate (Bundle savedInstanceState)
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeViews() {
         showEquation = findViewById(R.id.equation);
+        button = findViewById(R.id.fab);
     }
 
     private void setupEFAB() {
@@ -53,14 +59,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleEFABClick() {
-        //do the calculation
-        //if its correct,
-            //display it in the result
-        //else
-            //go to the instructions activity
-
-        //This goes to the Instructions Activity
-        showInstructions();
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                equation = showEquation.getText().toString();
+                String result = PA3.evaluate(equation);
+                if(!result.equals("Something went wrong. Try again!")) {
+                    showEquation.setText(result);
+                }
+                else{
+                    Snackbar.make(view, "Invalid Equation", Snackbar.LENGTH_LONG)
+                            .setAction("Show Instructions...",
+                                    view1 -> showInstructions())
+                            .show();
+                }
+            }
+        });
     }
 
 
