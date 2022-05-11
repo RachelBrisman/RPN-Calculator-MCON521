@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_bar"/>
 
-    <include layout="@layout/main_include_calculate_button"
+    <include layout="@layout/main_include_efab_grid"
         android:id="@+id/main_include_calculate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,16 +40,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guide"
         app:layout_constraintTop_toBottomOf="@+id/main_include_equation"/>
-
-    <!--<TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="RESULT: "
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fab" />-->
 </merge>

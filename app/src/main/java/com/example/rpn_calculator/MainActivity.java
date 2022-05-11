@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupToolbar();
-        setupEFAB();
+        setupCalcEFAB();
+        setupNewCalcEFAB();
         initializeViews();
     }
 
@@ -44,16 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeViews() {
         showEquation = findViewById(R.id.equation);
-        button = findViewById(R.id.fab);
+        button = findViewById(R.id.calc_fab);
     }
 
-    private void setupEFAB() {
-        ExtendedFloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> handleEFABClick(fab));
+    private void setupCalcEFAB() {
+        ExtendedFloatingActionButton fab = findViewById(R.id.calc_fab);
+        fab.setOnClickListener(view -> handleCalcEFABClick(fab));
     }
 
-    private void handleEFABClick(View view) {
-
+    private void handleCalcEFABClick(View view) {
         equation = showEquation.getText().toString();
         String result = PA3.evaluate(equation);
         if (!result.equals("Invalid input")) {
@@ -64,9 +64,17 @@ public class MainActivity extends AppCompatActivity {
                             view1 -> showInstructions())
                     .show();
         }
-
     }
 
+    private void setupNewCalcEFAB() {
+        ExtendedFloatingActionButton fab = findViewById(R.id.new_fab);
+        fab.setOnClickListener(view -> handleNewCalcEFABClick(fab));
+    }
+
+    public void handleNewCalcEFABClick(View view) {
+        equation = "";
+        showEquation.setText(equation);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
