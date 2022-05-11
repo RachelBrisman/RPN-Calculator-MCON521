@@ -15,17 +15,18 @@ public class PA3 {
 
                 if (isOperation(value)) {
                     if (stackNum.size() < 2) {
-                        return "syntax issue";
+                        return "Invalid input";
                     } else {
                         Double value1 = stackNum.pop();
                         Double value2 = stackNum.pop();
                         stackNum.push(operate(value1, value2, value.charAt(0)));
-                    }
+                        }
 
-                } else {
-                    return "Invalid input";
+                    } else{
+                        return "Invalid input";
+                    }
                 }
-            }
+
         }
         return String.format("%.2f", stackNum.pop());
     }

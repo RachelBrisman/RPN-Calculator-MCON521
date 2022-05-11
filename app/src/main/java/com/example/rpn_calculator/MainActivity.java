@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                             view1 -> showInstructions())
                     .show();
         }
-
     }
 
 
