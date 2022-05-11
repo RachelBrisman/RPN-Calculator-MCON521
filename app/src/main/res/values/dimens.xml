@@ -4,4 +4,5 @@
     <dimen name="double_activity_margin">16dp</dimen>
     <dimen name="padding">8dp</dimen>
     <dimen name="image_height">60dp</dimen>
+    <dimen name="no_space">0dp</dimen>
 </resources>
