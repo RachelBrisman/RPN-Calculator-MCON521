@@ -15,7 +15,7 @@ public class PA3 {
 
                 if (isOperation(value)) {
                     if (stackNum.size() < 2) {
-                        return "syntax issue";
+                        return "Invalid input";
                     } else {
                         Double value1 = stackNum.pop();
                         Double value2 = stackNum.pop();

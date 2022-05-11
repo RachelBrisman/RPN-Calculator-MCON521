@@ -88,12 +88,18 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_instructions) {
             showInstructions();
         } else if (id == R.id.action_toggle_auto_save) {
-            //set auto save in or off
+            toggleMenuItem(item);
+            //need to figure out how to do it
         } else if (id == R.id.action_about) {
             showAbout();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void toggleMenuItem(MenuItem item)
+    {
+        item.setChecked(!item.isChecked());
     }
 
     private void showInstructions() {

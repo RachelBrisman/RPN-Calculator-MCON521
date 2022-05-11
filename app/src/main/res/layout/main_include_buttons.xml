@@ -17,7 +17,7 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorDefaultBackground"
+        android:background="@color/defaultBackgroundColor"
         android:columnCount="@integer/columns"
         android:orientation="horizontal">
 
@@ -88,7 +88,7 @@
             android:layout_height="@dimen/image_height"
             android:onClick="backspaceEquation"
             android:src="?attr/homeAsUpIndicator"
-            app:tint="@android:color/black" />
+            app:tint="@color/colorPrimaryTextColored" />
 
         <Button
             style="@style/BorderlessButton"

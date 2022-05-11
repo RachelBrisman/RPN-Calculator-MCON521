@@ -15,4 +15,7 @@
     <string name="calculate">Calculate</string>
     <string name="placeholder">PLACEHOLDER</string>
     <string name="instruction">Type in a Reverse Polish Notation Equation</string>
+    <string name="auto_save">Auto-Save Current Equation</string>
+    <string name="about">About</string>
+    <string name="instruction_title">Instructions</string>
 </resources>
