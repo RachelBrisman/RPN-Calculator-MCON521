@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/defaultBackgroundColor"
-    android:columnCount="2"
+    android:columnCount="@integer/efab_columns"
     android:orientation="horizontal"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -17,6 +17,7 @@
         android:id="@+id/new_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/padding"
         android:text="New Equation" />
 
@@ -24,6 +25,7 @@
         android:id="@+id/calc_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/padding"
         android:text="@string/calculate" />
 
