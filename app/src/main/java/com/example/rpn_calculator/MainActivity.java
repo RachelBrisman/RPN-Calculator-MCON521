@@ -29,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView result;
 
     @Override
-    protected void onCreate (Bundle savedInstanceState)
-    {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_main);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         setupToolbar();
         setupEFAB();
         initializeViews();
@@ -50,31 +49,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupEFAB() {
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                handleEFABClick();
-            }
-        });
+        fab.setOnClickListener(view -> handleEFABClick(fab));
     }
 
-    private void handleEFABClick() {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                equation = showEquation.getText().toString();
-                String result = PA3.evaluate(equation);
-                if(!result.equals("Something went wrong. Try again!")) {
-                    showEquation.setText(result);
-                }
-                else{
-                    Snackbar.make(view, "Invalid Equation", Snackbar.LENGTH_LONG)
-                            .setAction("Show Instructions...",
-                                    view1 -> showInstructions())
-                            .show();
-                }
-            }
-        });
+    private void handleEFABClick(View view) {
+
+        equation = showEquation.getText().toString();
+        String result = PA3.evaluate(equation);
+        if (!result.equals("Invalid input")) {
+            showEquation.setText(result);
+        } else {
+            Snackbar.make(view, "Invalid Equation", Snackbar.LENGTH_LONG)
+                    .setAction("Show Instructions...",
+                            view1 -> showInstructions())
+                    .show();
+        }
+
     }
 
 
@@ -95,13 +85,11 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }else
-        if (id == R.id.action_instructions) {
+        } else if (id == R.id.action_instructions) {
             showInstructions();
-        }else
-        if (id == R.id.action_toggle_auto_save) {
+        } else if (id == R.id.action_toggle_auto_save) {
             //set auto save in or off
-        }else if (id == R.id.action_about) {
+        } else if (id == R.id.action_about) {
             showAbout();
         }
 
@@ -132,8 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void backspaceEquation(View view) {
-        if(equation.length() != 0)
-        {
+        if (equation.length() != 0) {
             equation = equation.substring(0, equation.length() - 1);
         }
         showEquation.setText(equation);

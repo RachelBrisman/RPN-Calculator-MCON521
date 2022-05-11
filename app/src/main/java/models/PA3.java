@@ -4,74 +4,66 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class PA3 {
-    public static Scanner scan = new Scanner(System.in);
-    public static Stack<Double> stack = new Stack<>();
+    public static String evaluate(String expression) {
+        Stack<Double> stackNum = new Stack<>();
+        String[] strExp = expression.split("\\s+");
 
-    public static String evaluate(String expression)
-    {
-        String[] values = expression.trim().split("\\s+");
-        for(String s : values)
-        {
-            if(isNumber(s))
-            {
-                stack.push(Double.parseDouble(s));
-            }else
-            {
-                try {
-                    //check if stack empty
-                    Double two = stack.peek();
-                    stack.pop();
-                    Double one = stack.peek();
-                    stack.pop();
-                    if(s.equals("+"))
-                    {
-                        stack.push(one + two);
-                    }else if(s.equals("-")){
-                        stack.push(one - two);
-                    }else if(s.equals("*"))
-                    {
-                        stack.push(one * two);
-                    }else if(s.equals("/"))
-                    {
-                        stack.push(one / two);
+        for (int i = 0; i < strExp.length; i++) {
+
+            String value = strExp[i];
+            if (!pushIfNumeric(value, stackNum)) {
+
+                if (isOperation(value)) {
+                    if (stackNum.size() < 2) {
+                        return "syntax issue";
+                    } else {
+                        Double value1 = stackNum.pop();
+                        Double value2 = stackNum.pop();
+                        stackNum.push(operate(value1, value2, value.charAt(0)));
                     }
-                }catch(Exception e){
-                    return "Something went wrong. Try again!";
-                }
-            }
-        }
 
-        loop:
-        if(!stack.isEmpty()){
-            Double top = stack.peek();
-            stack.pop();
-            if(stack.isEmpty()){
-                while(!stack.isEmpty())
-                {
-                    stack.pop();
+                } else {
+                    return "Invalid input";
                 }
-                return String.valueOf(top);
-            }else{
-                break loop;
             }
-        }else{
-            break loop;
         }
-        while(!stack.isEmpty())
-        {
-            stack.pop();
-        }
-        return "Something went wrong. Try again!";
+        return String.format("%.2f", stackNum.pop());
     }
 
-    public static Boolean isNumber(String s)
-    {
+    public static boolean pushIfNumeric(String s, Stack<Double> stackNum) {
         try {
-            Integer.parseInt(s);
+            Double dblNum = Double.parseDouble(s);
+            stackNum.push(dblNum);
             return true;
-        }
-        catch( Exception e ) {
+        } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public static boolean isOperation(String s) {
+        if (s.equals("x") || s.equals("/") || s.equals("+") || s.equals("-")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static Double operate(Double val1, Double val2, char operation) {
+        Double retVal = null;
+        switch (operation) {
+            case '+':
+                retVal = val2 + val1;
+                break;
+            case '-':
+                retVal = val2 - val1;
+                break;
+            case '/':
+                retVal = val2 / val1;
+                break;
+            case 'x':
+                retVal = val2 * val1;
+                break;
+        }
+        return retVal;
     }
 }
