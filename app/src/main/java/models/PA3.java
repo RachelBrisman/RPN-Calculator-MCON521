@@ -27,6 +27,10 @@ public class PA3 {
                 }
             }
         }
+        if(stackNum.size() > 1)
+        {
+            return "Invalid input";
+        }
         return String.format("%.2f", stackNum.pop());
     }
 
