@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         String result = PA3.evaluate(equation);
         if (!result.equals("Invalid input")) {
             showEquation.setText(result);
+            equation = result;
         } else {
             Snackbar.make(view, "Invalid Equation", Snackbar.LENGTH_LONG)
                     .setAction("Show Instructions...",
