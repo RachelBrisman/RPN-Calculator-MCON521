@@ -3,7 +3,7 @@
     <style name="MaterialCardWithBorder" parent="Widget.MaterialComponents.CardView">
         <item name="strokeWidth">@dimen/slim_margin</item>
         <item name="strokeColor">@color/primaryColor</item>
-        <item name="cardBackgroundColor">@color/defaultBackgroundColor</item>
+        <item name="cardBackgroundColor">@color/colorDefaultBackground</item>
     </style>
 
     <style name="BorderlessButton" parent="Widget.MaterialComponents.Button.TextButton">

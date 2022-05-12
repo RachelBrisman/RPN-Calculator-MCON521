@@ -9,6 +9,7 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
 
+
     <!-- For colored text; default is black/dark-gray (Day) or
 white/light-gray (Night) -->
     <color name="colorPrimaryTextColored">@color/primaryDarkColor</color>
@@ -16,6 +17,5 @@ white/light-gray (Night) -->
     <!-- Matching colored background -->
     <color name="colorBackgroundColored">@color/primaryLightColor</color>
 
-    <color name="defaultBackgroundColor">@color/cardview_light_background</color>
-    <color name="inner_card_background_color">@color/defaultBackgroundColor</color>
+    <color name="colorDefaultBackground">@android:color/background_light</color>
 </resources>
