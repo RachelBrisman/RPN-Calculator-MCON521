@@ -12,7 +12,7 @@
         app:layout_constraintGuide_percent=".5"/>
 
     <include layout="@layout/main_include_equation"
-        android:id="@+id/main_include_equation"
+        android:id="@+id/equation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:alpha=".8"
@@ -38,6 +38,5 @@
         android:alpha=".8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guide"
-        app:layout_constraintTop_toBottomOf="@+id/main_include_equation"/>
+        app:layout_constraintStart_toEndOf="@+id/guide"/>
 </merge>

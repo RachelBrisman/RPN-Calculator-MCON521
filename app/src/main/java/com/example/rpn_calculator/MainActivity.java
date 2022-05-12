@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private String equation = "";
     private TextView showEquation;
     private Button button;
-    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
