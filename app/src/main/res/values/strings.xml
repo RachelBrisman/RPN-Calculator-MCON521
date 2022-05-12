@@ -7,13 +7,4 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="title_activity_instructions">Instructions</string>
-    <string name="instructions">The RPN Calculator works like a stack that pops the previous two integers when it hits an operation:\n\nFor example: 5 8 + is the equivalent of 5 + 8\n or\n5 8 + 2 * is the equivalent of (5 + 8) * 2\n\n Remember to put a space between each number and operation!</string>
-    <string name="space">SPACE</string>
-    <string name="calculate">Calculate</string>
-    <string name="instruction">Type in a Reverse Polish Notation Equation</string>
-    <string name="use_save_equation">Save Last Equation</string>
-    <string name="nm_key">NM</string>
-    <string name="about">About</string>
-    <string name="instruction_title">Instructions</string>
 </resources>

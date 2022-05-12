@@ -121,11 +121,7 @@ public class MainActivity extends AppCompatActivity {
                             view1 -> showInstructions())
                     .show();
         }
-    }
 
-    private void setupNewCalcEFAB() {
-        ExtendedFloatingActionButton fab = findViewById(R.id.new_fab);
-        fab.setOnClickListener(view -> handleNewCalcEFABClick(fab));
     }
 
     public void handleNewCalcEFABClick(View view) {

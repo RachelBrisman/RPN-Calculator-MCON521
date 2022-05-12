@@ -20,12 +20,13 @@ public class PA3 {
                         Double value1 = stackNum.pop();
                         Double value2 = stackNum.pop();
                         stackNum.push(operate(value1, value2, value.charAt(0)));
-                    }
+                        }
 
-                } else {
-                    return "Invalid input";
+                    } else{
+                        return "Invalid input";
+                    }
                 }
-            }
+
         }
         if(stackNum.size() > 1)
         {
