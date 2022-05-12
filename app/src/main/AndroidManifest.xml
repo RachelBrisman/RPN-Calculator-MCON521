@@ -17,7 +17,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/Theme.RPNCalculator.NoActionBar" >
             <intent-filter>
