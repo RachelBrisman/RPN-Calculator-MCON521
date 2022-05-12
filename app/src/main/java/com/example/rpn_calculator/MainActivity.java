@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private String equation = "";
     private TextView showEquation;
     private Button button;
+    private final String key = "KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
         setupCalcEFAB();
         setupNewCalcEFAB();
         initializeViews();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(key, equation);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        showEquation.setText(savedInstanceState.getString(key));
     }
 
     private void setupToolbar() {
