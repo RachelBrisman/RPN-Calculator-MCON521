@@ -1,8 +1,10 @@
 package com.example.rpn_calculator;
 
+import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
 import static lib.Utils.showInfoDialog;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -21,7 +23,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
-import lib.Utils;
 import models.PA3;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private String equation = "";
     private TextView showEquation;
     private Button button;
-    private final String key = "KEY";
-    private Boolean useAutoSave = true;
+    private final String keyEquation = "KEY_EQUATION";
+    private final String keySaveEquation = "KEY_NM";
+    private Boolean useSaveEquation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
-        Utils.setNightModeOnOffFromPreferenceValue(getApplicationContext(), getString(R.string.nm_key));
         setContentView(R.layout.activity_main);
         setupToolbar();
         setupCalcEFAB();
@@ -47,13 +48,51 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(key, equation);
+        outState.putString(keyEquation, equation);
+        outState.putBoolean(keySaveEquation, useSaveEquation);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        showEquation.setText(savedInstanceState.getString(key));
+        equation = savedInstanceState.getString(keyEquation);
+        showEquation.setText(equation);
+        useSaveEquation = savedInstanceState.getBoolean(keySaveEquation);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveSharedPreferences();
+    }
+
+    private void saveSharedPreferences() {
+        SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = defaultSharedPreferences.edit();
+
+        editor.putBoolean(keySaveEquation, useSaveEquation);
+
+        if(useSaveEquation)
+        {
+            editor.putString(keyEquation, equation);
+        }
+
+        editor.apply();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        restoreSharedPreferences();
+    }
+
+    private void restoreSharedPreferences() {
+        SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
+        useSaveEquation = defaultSharedPreferences.getBoolean(keySaveEquation, true);
+        if(useSaveEquation)
+        {
+            showEquation.setText(defaultSharedPreferences.getString(keyEquation, ""));
+        }
     }
 
     private void setupToolbar() {
@@ -113,10 +152,9 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_instructions) {
             showInstructions();
-        } else if (id == R.id.action_toggle_auto_save) {
+        } else if (id == R.id.action_toggle_save_equation) {
             toggleMenuItem(item);
-            useAutoSave = item.isChecked();
-            //need to figure out how to do it
+            useSaveEquation = item.isChecked();
         } else if (id == R.id.action_about) {
             showAbout();
         }
@@ -126,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_toggle_auto_save).setChecked(useAutoSave);
+        menu.findItem(R.id.action_toggle_save_equation).setChecked(useSaveEquation);
         return super.onPrepareOptionsMenu(menu);
     }
 

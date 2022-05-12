@@ -11,9 +11,9 @@
         android:title="@string/about"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_toggle_auto_save"
+        android:id="@+id/action_toggle_save_equation"
         android:checkable="true"
-        android:title="@string/no_night_mode"
+        android:title="@string/use_save_equation"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_settings"

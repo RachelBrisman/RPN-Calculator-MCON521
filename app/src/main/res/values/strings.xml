@@ -12,7 +12,7 @@
     <string name="space">SPACE</string>
     <string name="calculate">Calculate</string>
     <string name="instruction">Type in a Reverse Polish Notation Equation</string>
-    <string name="no_night_mode">Never use Night Mode</string>
+    <string name="use_save_equation">Save Last Equation</string>
     <string name="nm_key">NM</string>
     <string name="about">About</string>
     <string name="instruction_title">Instructions</string>

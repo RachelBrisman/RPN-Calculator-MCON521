@@ -4,6 +4,6 @@
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="@string/nm_key"
-        android:title="@string/no_night_mode" />
+        android:title="@string/use_save_equation" />
 
 </PreferenceScreen>
