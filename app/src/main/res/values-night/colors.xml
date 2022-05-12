@@ -7,6 +7,5 @@ white/light-gray (Night) -->
     <!-- Matching colored background -->
     <color name="colorBackgroundColored">@color/primaryDarkColor</color>
 
-    <color name="defaultBackgroundColor">@color/cardview_dark_background</color>
-    <color name="inner_card_background_color">@android:color/darker_gray</color>
+    <color name="colorDefaultBackground">@color/colorBackgroundColored</color>
 </resources>

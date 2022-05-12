@@ -4,16 +4,16 @@
     tools:context="com.example.rpn_calculator.MainActivity">
     <item
         android:id="@+id/action_instructions"
-        android:title="@string/instruction_title"
+        android:title="Instructions"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_about"
-        android:title="@string/about"
+        android:title="About"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_toggle_save_equation"
+        android:id="@+id/action_toggle_auto_save"
         android:checkable="true"
-        android:title="@string/use_save_equation"
+        android:title="Auto-Save Current Equation"
         app:showAsAction="never" />
 
 </menu>
