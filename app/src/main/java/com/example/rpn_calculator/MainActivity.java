@@ -14,12 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import lib.Utils;
 import models.PA3;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,10 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView showEquation;
     private Button button;
     private final String key = "KEY";
+    private Boolean useAutoSave = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
+        Utils.setNightModeOnOffFromPreferenceValue(getApplicationContext(), getString(R.string.nm_key));
         setContentView(R.layout.activity_main);
         setupToolbar();
         setupCalcEFAB();
@@ -110,12 +115,19 @@ public class MainActivity extends AppCompatActivity {
             showInstructions();
         } else if (id == R.id.action_toggle_auto_save) {
             toggleMenuItem(item);
+            useAutoSave = item.isChecked();
             //need to figure out how to do it
         } else if (id == R.id.action_about) {
             showAbout();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_toggle_auto_save).setChecked(useAutoSave);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     private void toggleMenuItem(MenuItem item)
