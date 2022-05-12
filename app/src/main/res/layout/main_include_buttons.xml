@@ -6,9 +6,9 @@
     style="@style/MaterialCardWithBorder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/padding"
+    android:layout_margin="8dp"
     android:alpha=".8"
-    app:layout_constraintBottom_toTopOf="@id/calc_fab"
+    app:layout_constraintBottom_toTopOf="@id/fab"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/equation"
@@ -17,8 +17,8 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/defaultBackgroundColor"
-        android:columnCount="@integer/button_columns"
+        android:background="@color/colorDefaultBackground"
+        android:columnCount="@integer/columns"
         android:orientation="horizontal">
 
         <Button
@@ -85,16 +85,16 @@
         <ImageButton
             style="@style/BorderlessButton"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/image_height"
+            android:layout_height="60dp"
             android:onClick="backspaceEquation"
             android:src="?attr/homeAsUpIndicator"
-            app:tint="@color/colorPrimaryTextColored" />
+            app:tint="@android:color/black" />
 
         <Button
             style="@style/BorderlessButton"
             android:layout_columnSpan="2"
             android:layout_gravity="center_horizontal"
-            android:text="@string/space"
+            android:text="SPACE"
             android:onClick="addSpaceToEquation" />
     </GridLayout>
 

@@ -6,7 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".InstructionsActivity">
 
-    <include layout="@layout/instructions_include_top_bar" />
-    <include layout="@layout/instructions_include_instructions_text" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.RPNCalculator.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.RPNCalculator.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:padding="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:gravity="center"
+        android:text="The RPN Calculator works like a stack that pops the previous two integers when it hits an operation:\n\nFor example: 5 8 + is the equivalent of 5 + 8\n or\n5 8 + 2 * is the equivalent of (5 + 8) * 2" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
