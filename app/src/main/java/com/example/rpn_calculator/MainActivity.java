@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         ExtendedFloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> handleEFABClick(fab));
     }
+    private void setupNewCalcEFAB() {
+        ExtendedFloatingActionButton fab = findViewById(R.id.new_fab);
+        fab.setOnClickListener(view -> handleNewCalcEFABClick(fab));
+    }
 
     private void handleEFABClick(View view) {
 
@@ -82,9 +86,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_instructions) {
+        if (id == R.id.action_instructions) {
             showInstructions();
         } else if (id == R.id.action_toggle_auto_save) {
             //set auto save in or off

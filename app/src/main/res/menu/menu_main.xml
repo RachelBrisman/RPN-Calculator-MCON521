@@ -15,8 +15,5 @@
         android:checkable="true"
         android:title="Auto-Save Current Equation"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+
 </menu>
