@@ -15,8 +15,4 @@
         android:checkable="true"
         android:title="@string/use_save_equation"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
 </menu>
